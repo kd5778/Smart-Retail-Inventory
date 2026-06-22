@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Smart Retail Inventory Management Dashboard - Analytics, Orders, Products & Inventory"
+    />
+    <title>Smart Retail Inventory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link rel="stylesheet" href="css/forms.css" />
+    <link rel="stylesheet" href="css/tables.css" />
+  </head>
+  <body>
+    <!-- Apply saved theme immediately to prevent flash -->
+    <script>
+      (function() {
+        var t = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', t);
+      })();
+    </script>
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg width="36" height="36" viewBox="0 0 48 48" fill="none">
+            <rect width="48" height="48" rx="12" fill="url(#grad1)" />
+            <g
+              transform="translate(12, 12)"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              fill="none"
+            >
+              <path d="M8 2h8" />
+              <path
+                d="M9 2v3.789a2 2 0 0 1-.671 1.49l-2.658 2.378A2 2 0 0 0 5 11.144V20a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-8.856a2 2 0 0 0-.671-1.488l-2.658-2.378A2 2 0 0 1 15 5.789V2"
+              />
+              <path d="M7 15a4.5 4.5 0 0 0 10 0" />
+            </g>
+            <defs>
+              <linearGradient id="grad1" x1="0" y1="0" x2="48" y2="48">
+                <stop stop-color="#6366f1" />
+                <stop offset="1" stop-color="#8b5cf6" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="sidebar-title">SmartRetail</span>
+        </div>
+        <button class="sidebar-toggle" id="sidebar-toggle-btn" aria-label="Toggle sidebar">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </div>
+      <ul class="sidebar-menu" id="sidebar-menu">
+        <li>
+          <a href="#" class="menu-item active" data-section="dashboard"
+            ><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7" />
+              <rect x="14" y="3" width="7" height="7" />
+              <rect x="14" y="14" width="7" height="7" />
+              <rect x="3" y="14" width="7" height="7" /></svg
+            ><span>Dashboard</span></a
+          >
+        </li>
+        <li>
+          <a href="#" class="menu-item" data-section="products"
+            ><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z" />
+              <line x1="7" y1="7" x2="7.01" y2="7" /></svg
+            ><span>Products</span></a
+          >
+        </li>
+        <li>
+          <a href="#" class="menu-item" data-section="suppliers"
+            ><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+              <circle cx="12" cy="12" r="3" /></svg
+            ><span>Suppliers</span></a
+          >
+        </li>
+        <li>
+          <a href="#" class="menu-item" data-section="customers"
+            ><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 00-3-3.87" />
+              <path d="M16 3.13a4 4 0 010 7.75" /></svg
+            ><span>Customers</span></a
+          >
+        </li>
+        <li>
+          <a href="#" class="menu-item" data-section="inventory"
+            ><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <path
+                d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"
+              />
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+              <line x1="12" y1="22.08" x2="12" y2="12" /></svg
+            ><span>Inventory</span></a
+          >
+        </li>
+        <li>
+          <a href="#" class="menu-item" data-section="purchase-orders"
+            ><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="9" cy="21" r="1" />
+              <circle cx="20" cy="21" r="1" />
+              <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6" /></svg
+            ><span>Purchase Orders</span></a
+          >
+        </li>
+        <li>
+          <a href="#" class="menu-item" data-section="sales-orders"
+            ><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="1" x2="12" y2="23" />
+              <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" /></svg
+            ><span>Sales Orders</span></a
+          >
+        </li>
+        <li>
+          <a href="#" class="menu-item" data-section="reports"
+            ><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="20" x2="18" y2="10" />
+              <line x1="12" y1="20" x2="12" y2="4" />
+              <line x1="6" y1="20" x2="6" y2="14" /></svg
+            ><span>Reports</span></a
+          >
+        </li>
+        <li id="nav-users-li" style="display: none">
+          <a href="#" class="menu-item" data-section="users"
+            ><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+              <circle cx="12" cy="7" r="4" /></svg
+            ><span>User Management</span></a
+          >
+        </li>
+      </ul>
+      <div class="sidebar-footer">
+        <div class="user-info" id="user-info">
+          <div class="user-avatar" id="user-avatar">AD</div>
+          <div class="user-details">
+            <span class="user-name" id="user-name">User</span>
+            <span class="user-role" id="user-role">Role</span>
+          </div>
+        </div>
+        <button class="btn btn-sm btn-outline" id="logout-btn">Logout</button>
+      </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="main-content" id="main-content">
+      <!-- Top Bar -->
+      <header class="topbar" id="topbar">
+        <div class="topbar-left">
+          <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          </button>
+          <h2 class="page-title" id="page-title">Dashboard</h2>
+        </div>
+        <div class="topbar-right">
+          <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle theme">
+            <svg class="icon-moon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+            </svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg>
+          </button>
+          <div class="notification-bell" id="notification-bell">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" />
+              <path d="M13.73 21a2 2 0 01-3.46 0" />
+            </svg>
+            <span class="notification-badge" id="notification-badge" style="display: none">0</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dynamic Content Container -->
+      <div class="content-area" id="content-area">
+        <!-- Dashboard Section (default) -->
+        <section class="section" id="section-dashboard">
+          <div class="kpi-grid" id="kpi-grid">
+            <div class="kpi-card glass-card" id="kpi-revenue">
+              <div class="kpi-icon revenue-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="12" y1="1" x2="12" y2="23" />
+                  <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+                </svg>
+              </div>
+              <div class="kpi-data">
+                <span class="kpi-value" id="kpi-revenue-value">₹0</span><span class="kpi-label">Monthly Revenue</span>
+              </div>
+            </div>
+            <div class="kpi-card glass-card" id="kpi-orders">
+              <div class="kpi-icon orders-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="9" cy="21" r="1" />
+                  <circle cx="20" cy="21" r="1" />
+                  <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6" />
+                </svg>
+              </div>
+              <div class="kpi-data">
+                <span class="kpi-value" id="kpi-orders-value">0</span><span class="kpi-label">Total Sales Orders</span>
+              </div>
+            </div>
+            <div class="kpi-card glass-card" id="kpi-inventory">
+              <div class="kpi-icon inventory-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"
+                  />
+                </svg>
+              </div>
+              <div class="kpi-data">
+                <span class="kpi-value" id="kpi-inventory-value">₹0</span><span class="kpi-label">Inventory Value</span>
+              </div>
+            </div>
+            <div class="kpi-card glass-card" id="kpi-low-stock">
+              <div class="kpi-icon alert-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+                  <line x1="12" y1="9" x2="12" y2="13" />
+                  <line x1="12" y1="17" x2="12.01" y2="17" />
+                </svg>
+              </div>
+              <div class="kpi-data">
+                <span class="kpi-value" id="kpi-low-stock-value">0</span><span class="kpi-label">Low Stock Alerts</span>
+              </div>
+            </div>
+          </div>
+          <div class="charts-grid">
+            <div class="chart-card glass-card" id="chart-revenue">
+              <h3>Revenue Trend</h3>
+              <canvas id="revenue-chart" width="600" height="300"></canvas>
+            </div>
+            <div class="chart-card glass-card" id="chart-top-products">
+              <h3>Top Products</h3>
+              <canvas id="top-products-chart" width="400" height="300"></canvas>
+            </div>
+          </div>
+          <div class="charts-grid">
+            <div class="chart-card glass-card" id="chart-top-customers">
+              <h3>Top Customers by Revenue</h3>
+              <div id="top-customers-list" class="data-list"></div>
+            </div>
+            <div class="chart-card glass-card" id="chart-suppliers">
+              <h3>Supplier Performance</h3>
+              <div id="supplier-performance-list" class="data-list"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="section hidden" id="section-products"><div id="products-content"></div></section>
+        <!-- Suppliers Section -->
+        <section class="section hidden" id="section-suppliers"><div id="suppliers-content"></div></section>
+        <!-- Customers Section -->
+        <section class="section hidden" id="section-customers"><div id="customers-content"></div></section>
+        <!-- Inventory Section -->
+        <section class="section hidden" id="section-inventory"><div id="inventory-content"></div></section>
+        <!-- Purchase Orders Section -->
+        <section class="section hidden" id="section-purchase-orders"><div id="purchase-orders-content"></div></section>
+        <!-- Sales Orders Section -->
+        <section class="section hidden" id="section-sales-orders"><div id="sales-orders-content"></div></section>
+        <!-- Reports Section -->
+        <section class="section hidden" id="section-reports"><div id="reports-content"></div></section>
+        <!-- User Management Section (Admin only) -->
+        <section class="section hidden" id="section-users"><div id="users-content"></div></section>
+      </div>
+    </main>
+
+    <!-- Modal Container -->
+    <div class="modal-overlay hidden" id="modal-overlay">
+      <div class="modal glass-card" id="modal">
+        <div class="modal-header">
+          <h3 id="modal-title">Modal Title</h3>
+          <button class="modal-close" id="modal-close-btn">&times;</button>
+        </div>
+        <div class="modal-body" id="modal-body"></div>
+        <div class="modal-footer" id="modal-footer"></div>
+      </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <script src="js/api.js?v=4"></script>
+    <script src="js/auth.js?v=4"></script>
+    <script src="js/dashboard.js?v=4"></script>
+    <script src="js/products.js?v=4"></script>
+    <script src="js/suppliers.js?v=4"></script>
+    <script src="js/customers.js?v=4"></script>
+    <script src="js/inventory.js?v=4"></script>
+    <script src="js/purchaseOrders.js?v=4"></script>
+    <script src="js/salesOrders.js?v=4"></script>
+    <script src="js/reports.js?v=4"></script>
+    <script src="js/users.js?v=4"></script>
+    <script src="js/app.js?v=4"></script>
+    <script>
+      // Theme Toggle
+      (function() {
+        var btn = document.getElementById('theme-toggle-btn');
+        if (!btn) return;
+        btn.addEventListener('click', function() {
+          var current = document.documentElement.getAttribute('data-theme') || 'dark';
+          var next = current === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', next);
+          localStorage.setItem('theme', next);
+        });
+      })();
+    </script>
+  </body>
+</html>

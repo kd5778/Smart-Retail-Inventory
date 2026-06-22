@@ -1,0 +1,131 @@
+/* ============================================================================
+   Data Tables
+   ============================================================================ */
+
+.table-container {
+  overflow-x: auto;
+  padding: 4px;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.data-table thead th {
+  padding: 13px 16px;
+  text-align: left;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+  background: rgba(30, 34, 53, 0.4);
+  position: sticky;
+  top: 0;
+  white-space: nowrap;
+}
+.data-table thead th:first-child {
+  border-radius: 10px 0 0 0;
+}
+.data-table thead th:last-child {
+  border-radius: 0 10px 0 0;
+}
+
+.data-table tbody tr {
+  transition: all var(--transition-fast);
+}
+.data-table tbody tr:hover {
+  background: rgba(99, 102, 241, 0.04);
+}
+
+.data-table tbody td {
+  padding: 12px 16px;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  vertical-align: middle;
+}
+
+/* Zebra stripe (subtle) */
+.data-table tbody tr:nth-child(even) {
+  background: rgba(30, 34, 53, 0.25);
+}
+.data-table tbody tr:nth-child(even):hover {
+  background: rgba(99, 102, 241, 0.06);
+}
+
+/* Actions column */
+.actions-cell {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  white-space: nowrap;
+}
+
+/* Text alignment helpers */
+.data-table .text-right {
+  text-align: right;
+}
+
+/* Highlight row for warnings (low stock, etc.) */
+.data-table tbody tr.row-warning {
+  background: rgba(245, 158, 11, 0.04);
+  border-left: 3px solid var(--warning);
+}
+.data-table tbody tr.row-warning:hover {
+  background: rgba(245, 158, 11, 0.08);
+}
+
+/* Code styling in tables */
+.data-table code {
+  font-size: 0.8rem;
+  padding: 2px 8px;
+  background: rgba(99, 102, 241, 0.08);
+  border-radius: 4px;
+  color: var(--accent);
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* ---- Responsive Table ---- */
+@media (max-width: 768px) {
+  .data-table {
+    font-size: 0.82rem;
+  }
+  .data-table thead th,
+  .data-table tbody td {
+    padding: 10px 10px;
+  }
+}
+
+/* ============================================================================
+   LIGHT THEME — Table overrides
+   ============================================================================ */
+[data-theme='light'] .data-table thead th {
+  background: rgba(241, 245, 249, 0.8);
+  border-bottom-color: rgba(99, 102, 241, 0.1);
+  color: var(--text-muted);
+}
+[data-theme='light'] .data-table tbody tr:hover {
+  background: rgba(99, 102, 241, 0.04);
+}
+[data-theme='light'] .data-table tbody td {
+  border-bottom-color: rgba(0, 0, 0, 0.04);
+}
+[data-theme='light'] .data-table tbody tr:nth-child(even) {
+  background: rgba(241, 245, 249, 0.5);
+}
+[data-theme='light'] .data-table tbody tr:nth-child(even):hover {
+  background: rgba(99, 102, 241, 0.06);
+}
+[data-theme='light'] .data-table tbody tr.row-warning {
+  background: rgba(217, 119, 6, 0.06);
+}
+[data-theme='light'] .data-table tbody tr.row-warning:hover {
+  background: rgba(217, 119, 6, 0.1);
+}
+[data-theme='light'] .data-table code {
+  background: rgba(99, 102, 241, 0.06);
+}
