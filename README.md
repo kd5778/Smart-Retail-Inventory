@@ -458,8 +458,17 @@ smart-retail-inventory/
 ---
 
 ## 📸 Screenshots
+<div align="center">
 
-> Screenshots will be added once the UI is finalized.
+### 🏠 Landing Page - Feature of Dark Theme and Light Theme
+<img src="public/screenshots/homepage1.png" alt="VaultiX Landing Page" width="100%" />
+
+<br/><br/>
+
+### 🗄️ Vault Dashboard
+<img src="public/screenshots/dashboard.png" alt="VaultiX Dashboard" width="100%" />
+
+</div>
 
 | Screen              | Description                                                               |
 | ------------------- | ------------------------------------------------------------------------- |
