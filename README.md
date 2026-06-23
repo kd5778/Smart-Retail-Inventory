@@ -461,12 +461,12 @@ smart-retail-inventory/
 <div align="center">
 
 ### 🏠 Landing Page - Feature of Dark Theme and Light Theme
-<img src="public/screenshots/homepage1.png" alt="VaultiX Landing Page" width="100%" />
+<img src="public/screenshots/homepage.png" alt="Landing Page" width="100%" />
 
 <br/><br/>
 
-### 🗄️ Vault Dashboard
-<img src="public/screenshots/dashboard.png" alt="VaultiX Dashboard" width="100%" />
+### 🗄️ Dashboard
+<img src="public/screenshots/dashboard.png" alt="Dashboard" width="100%" />
 
 </div>
 

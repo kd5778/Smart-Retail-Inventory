@@ -39,6 +39,7 @@ coverage/
 # ---- Temporary Files ----
 tmp/
 temp/
+extra.js
 
 # ---- Docs ----
 # Read-only reference material, not needed for the app to run

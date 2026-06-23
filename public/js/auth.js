@@ -103,7 +103,7 @@ const Auth = (() => {
   }
   function logout() {
     API.removeToken();
-    window.location.href = '/login.html';
+    window.location.href = '/';
   }
   document.addEventListener('DOMContentLoaded', init);
   return { logout };
