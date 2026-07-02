@@ -3,7 +3,7 @@ const logger = require('../utils/logger');
 
 // SSL config for Aiven (production) — ignored in local development
 const sslConfig = process.env.DB_SSL === 'true'
-  ? { rejectUnauthorized: true }
+  ? { rejectUnauthorized: true, ca: process.env.DB_CA_CERT }
   : false;
 
 const pool = mysql.createPool({
