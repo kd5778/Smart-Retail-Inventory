@@ -22,11 +22,13 @@ FOR EACH ROW
 BEGIN
     DECLARE v_warehouse_id BIGINT UNSIGNED;
     DECLARE v_delta INT;
+    DECLARE v_performed_by BIGINT UNSIGNED;
 
     IF NEW.quantity_received > OLD.quantity_received THEN
         SET v_delta = NEW.quantity_received - OLD.quantity_received;
 
-        SELECT warehouse_id INTO v_warehouse_id
+        SELECT warehouse_id, COALESCE(approved_by, created_by)
+        INTO v_warehouse_id, v_performed_by
         FROM purchase_orders
         WHERE po_id = NEW.po_id;
 
@@ -43,7 +45,7 @@ BEGIN
             NEW.product_id, v_warehouse_id, 'purchase_in', v_delta,
             'purchase_order', NEW.po_id,
             CONCAT('Received ', v_delta, ' units from PO item #', NEW.po_item_id),
-            NULL
+            v_performed_by
         );
     END IF;
 END //
