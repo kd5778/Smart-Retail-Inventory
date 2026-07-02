@@ -10,6 +10,9 @@
   <img src="https://img.shields.io/badge/Express.js-4.x-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express.js">
   <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="License">
   <img src="https://img.shields.io/badge/PRs-Welcome-brightgreen?style=for-the-badge" alt="PRs Welcome">
+  <a href="https://smart-retail-inventory-pkh5.onrender.com/" target="_blank">
+    <img src="https://img.shields.io/badge/🚀_Live_Demo-Render-4351e8?style=for-the-badge&logo=render&logoColor=white" alt="Live Demo">
+  </a>
 </p>
 
 ---
