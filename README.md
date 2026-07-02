@@ -16,20 +16,43 @@
 
 ## 📋 Table of Contents
 
+- [Screenshots](#-screenshots)
 - [Feature Highlights](#-feature-highlights)
 - [System Architecture](#-system-architecture)
 - [Tech Stack](#-tech-stack)
 - [Prerequisites](#-prerequisites)
 - [Installation & Setup](#-installation--setup)
 - [Database Setup](#-database-setup)
-- [Default Credentials](#-default-credentials)
 - [API Endpoints Summary](#-api-endpoints-summary)
 - [Project Structure](#-project-structure)
-- [Screenshots](#-screenshots)
-- [Contributing](#-contributing)
-- [Documentation](#-documentation)
 - [License](#-license)
 - [Author](#-author)
+
+---
+
+## 📸 Screenshots
+<div align="center">
+
+### 🏠 Landing Page - Feature of Dark Theme and Light Theme
+<img src="public/screenshots/homepage.png" alt="Landing Page" width="100%" />
+
+<br/><br/>
+
+### 🗄️ Dashboard
+<img src="public/screenshots/dashboard.png" alt="Dashboard" width="100%" />
+
+</div>
+
+| Screen              | Description                                                               |
+| ------------------- | ------------------------------------------------------------------------- |
+| **Dashboard**       | Main analytics dashboard with KPI cards, revenue charts, and stock alerts |
+| **Product List**    | Paginated product grid with search, filter, and sort capabilities         |
+| **Purchase Order**  | PO creation form with supplier selection and line item management         |
+| **Sales Order**     | SO creation with customer selection, product picker, and auto-pricing     |
+| **Inventory View**  | Multi-warehouse stock levels with visual indicators for low stock         |
+| **Reports**         | Inventory valuation and ABC analysis reports with exportable tables       |
+| **User Management** | Admin panel for managing users, roles, and permissions                    |
+| **Audit Trail**     | Searchable audit log showing all system modifications                     |
 
 ---
 
@@ -257,20 +280,6 @@ The server will start at `http://localhost:3000`
 
 ---
 
-## 🔑 Default Credentials
-
-After running the seed data script, you can log in with:
-
-| Field        | Value                       |
-| ------------ | --------------------------- |
-| **Email**    | `admin@smartretail.com`     |
-| **Password** | `Password123!`              |
-| **Role**     | Administrator (full access) |
-
-> 🔒 **Security Note:** Change the default password immediately in production environments.
-
----
-
 ## 📡 API Endpoints Summary
 
 ### Authentication
@@ -454,78 +463,6 @@ smart-retail-inventory/
 ├── server.js                     # Entry point
 └── README.md
 ```
-
----
-
-## 📸 Screenshots
-<div align="center">
-
-### 🏠 Landing Page - Feature of Dark Theme and Light Theme
-<img src="public/screenshots/homepage.png" alt="Landing Page" width="100%" />
-
-<br/><br/>
-
-### 🗄️ Dashboard
-<img src="public/screenshots/dashboard.png" alt="Dashboard" width="100%" />
-
-</div>
-
-| Screen              | Description                                                               |
-| ------------------- | ------------------------------------------------------------------------- |
-| **Dashboard**       | Main analytics dashboard with KPI cards, revenue charts, and stock alerts |
-| **Product List**    | Paginated product grid with search, filter, and sort capabilities         |
-| **Purchase Order**  | PO creation form with supplier selection and line item management         |
-| **Sales Order**     | SO creation with customer selection, product picker, and auto-pricing     |
-| **Inventory View**  | Multi-warehouse stock levels with visual indicators for low stock         |
-| **Reports**         | Inventory valuation and ABC analysis reports with exportable tables       |
-| **User Management** | Admin panel for managing users, roles, and permissions                    |
-| **Audit Trail**     | Searchable audit log showing all system modifications                     |
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Follow these steps:
-
-1. **Fork** the repository
-2. **Create** a feature branch
-   ```bash
-   git checkout -b feature/amazing-feature
-   ```
-3. **Commit** your changes using conventional commits
-   ```bash
-   git commit -m "feat: add amazing feature"
-   ```
-4. **Push** to your branch
-   ```bash
-   git push origin feature/amazing-feature
-   ```
-5. **Open** a Pull Request against the `develop` branch
-
-### Commit Convention
-
-| Prefix      | Purpose               |
-| ----------- | --------------------- |
-| `feat:`     | New feature           |
-| `fix:`      | Bug fix               |
-| `docs:`     | Documentation changes |
-| `refactor:` | Code refactoring      |
-| `test:`     | Adding/updating tests |
-| `chore:`    | Build/config changes  |
-
----
-
-## 📚 Documentation
-
-Detailed documentation is available in the [`docs/`](./docs/) directory:
-
-- [📐 Architecture](./docs/ARCHITECTURE.md) — System design and data flow
-- [🗄️ Database Design](./docs/DATABASE_DESIGN.md) — Schema, normalization, and ER diagrams
-- [📡 API Documentation](./docs/API_DOCUMENTATION.md) — Complete REST API reference
-- [⚡ Indexing Strategy](./docs/INDEXING_STRATEGY.md) — Performance optimization
-- [🎯 Interview Preparation](./docs/INTERVIEW_PREPARATION.md) — 50 technical Q&A
-- [📝 Resume Bullets](./docs/RESUME_BULLETS.md) — ATS-friendly project descriptions
-- [🐙 GitHub Optimization](./docs/GITHUB_OPTIMIZATION.md) — Repository optimization guide
 
 ---
 
