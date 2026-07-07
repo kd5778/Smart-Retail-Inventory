@@ -19,12 +19,13 @@
 </head>
 <body>
 
-  <!-- ========== NAVBAR ========== -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-container">
+  <!-- ========== FLOATING PILL NAVBAR ========== -->
+  <div class="navbar-wrapper" id="navbar-wrapper">
+    <nav class="navbar-pill" id="navbar">
+      <!-- Logo -->
       <a href="/" class="nav-brand">
         <div class="brand-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path>
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <path d="M16 10a4 4 0 01-8 0"></path>
@@ -33,17 +34,23 @@
         SmartRetail
       </a>
 
+      <!-- Desktop Nav Links -->
       <div class="nav-links">
         <a href="#home" class="nav-link active">Home</a>
         <a href="#features" class="nav-link">Features</a>
       </div>
 
+      <!-- Divider -->
+      <div class="nav-divider"></div>
+
+      <!-- Right Side Actions -->
       <div class="nav-actions">
+        <!-- Theme Toggle -->
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
           </svg>
-          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="5"></circle>
             <line x1="12" y1="1" x2="12" y2="3"></line>
             <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -59,7 +66,6 @@
         <!-- Logged OUT state -->
         <button class="nav-signin" id="nav-signin" onclick="openAuthModal('login')">Sign In</button>
 
-        <!-- Logged IN state -->
         <!-- Logged IN state -->
         <div class="nav-user" id="nav-user" style="display:none;" onclick="toggleUserDropdown(event)">
           <div class="nav-user-avatar" id="nav-user-avatar">AD</div>
@@ -91,18 +97,20 @@
           </div>
         </div>
 
-      <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
+        <!-- Mobile Hamburger -->
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
 
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobile-menu">
-    <a href="#home" class="mobile-link">Home</a>
-    <a href="#features" class="mobile-link">Features</a>
-    <button class="mobile-link" id="mobile-signin-btn" onclick="openAuthModal('login');document.getElementById('mobile-menu').classList.remove('open');document.getElementById('nav-hamburger').classList.remove('open');">Sign In</button>
-    <a href="/index.html" class="mobile-link" id="mobile-dashboard" style="display:none;">Go to Dashboard</a>
+    <!-- Mobile Dropdown Menu (below pill) -->
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#home" class="mobile-link">Home</a>
+      <a href="#features" class="mobile-link">Features</a>
+      <button class="mobile-link" id="mobile-signin-btn" onclick="openAuthModal('login');document.getElementById('mobile-menu').classList.remove('open');document.getElementById('nav-hamburger').classList.remove('open');">Sign In</button>
+      <a href="/index.html" class="mobile-link" id="mobile-dashboard" style="display:none;">Go to Dashboard</a>
+    </div>
   </div>
 
   <!-- ========== HERO ========== -->
@@ -688,10 +696,23 @@ function handleLogout() {
     });
   });
 
-  // ── Navbar scroll ─────────────────────────────────────────
+  // ── Navbar scroll (hide on scroll-down, show on scroll-up) ──
+  var lastScrollY = 0;
+  var navbarWrapper = document.getElementById('navbar-wrapper');
   window.addEventListener('scroll', function() {
-    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-  });
+    var currentY = window.scrollY;
+    if (currentY < 50) {
+      navbarWrapper.classList.remove('hidden');
+    } else if (currentY < lastScrollY) {
+      navbarWrapper.classList.remove('hidden');
+    } else if (currentY > lastScrollY) {
+      navbarWrapper.classList.add('hidden');
+      // Close mobile menu when hiding
+      document.getElementById('mobile-menu').classList.remove('open');
+      document.getElementById('nav-hamburger').classList.remove('open');
+    }
+    lastScrollY = currentY;
+  }, { passive: true });
 
   // ── Active nav on scroll ──────────────────────────────────
   var sections = document.querySelectorAll('section[id]');
